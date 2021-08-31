@@ -9,6 +9,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
 import { AddShopComponent } from './components/add-shop/add-shop.component';
 import { EditShopComponent } from './components/edit-shop/edit-shop.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
   {path:'', component:ShopsComponent,
@@ -27,8 +28,10 @@ const routes: Routes = [
     SharedModule,
     RouterModule.forChild(routes),
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
-  declarations: [ShopsComponent, ListComponent]
+  declarations: [ShopsComponent, ListComponent, AddShopComponent, EditShopComponent]
 })
 export class ShopsModule { }

@@ -1,5 +1,31 @@
 <div class="container">
 
-  
+  <mat-card>
+    <form [formGroup]="addForm">
+
+      <div class="col">
+
+        <div class="row mb-3">
+          <mat-form-field appearance="outline">
+            <mat-label>Name</mat-label>
+            <input formControlName="name" matInput #name>
+          </mat-form-field>
+        </div>
+
+        <div class="row">
+          <mat-form-field appearance="outline">
+            <mat-label>Location</mat-label>
+            <input formControlName="location" matInput #location>
+          </mat-form-field>
+        </div>
+
+        <div class="row">
+          <button mat-raised-button type="submit" color="primary">save</button>
+        </div>
+
+      </div>
+
+    </form>
+  </mat-card>
 
 </div>

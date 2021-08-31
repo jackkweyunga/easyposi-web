@@ -11,9 +11,8 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
-
-
-
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 @NgModule({
   imports: [
     CommonModule
@@ -30,6 +29,8 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
     MatCardModule,
     MatGridListModule,
     MatSlideToggleModule,
+    MatFormFieldModule,
+    MatInputModule,
   ]
 })
 export class SharedModule { }
