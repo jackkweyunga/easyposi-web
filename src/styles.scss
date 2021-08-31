@@ -1,0 +1,27 @@
+@import '~@angular/material/theming';
+
+@import './assets/styles/app-color-palette';
+@import './assets/styles/app-theme';
+
+// Create the theme objects (a Sass map containing all of the palettes).
+$mat-light-theme: mat-light-theme($app-primary, $app-accent, $app-warn);
+$mat-dark-theme: mat-dark-theme($app-primary, $app-accent, $app-warn);
+
+// Load core styles which independant from theme
+// It should be included once
+@include app-style-core();
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.theme-dark {
+  @include app-theme($mat-dark-theme);
+}
+.theme-light {
+  @include app-theme($mat-light-theme);
+}

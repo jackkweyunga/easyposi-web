@@ -1,0 +1,65 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
+    <mat-toolbar>
+      Bussiness Name
+    </mat-toolbar>
+    <mat-divider></mat-divider>
+
+    <mat-nav-list>
+      <a mat-list-item [routerLink]="[ '']">
+        <mat-icon>dashboard</mat-icon> Dashboard
+      </a>
+      <mat-divider></mat-divider>
+      <br>
+
+      <a mat-list-item [routerLink]="[ '/shops']">
+        <mat-icon>shop</mat-icon> Shops
+      </a>
+      <mat-divider></mat-divider>
+      <a mat-list-item [routerLink]="[ '/stores']">
+        <mat-icon>store</mat-icon> Stores
+      </a>
+      <mat-divider></mat-divider>
+      <a mat-list-item [routerLink]="[ '/workers']">
+        <mat-icon>group</mat-icon> Workers
+      </a>
+      <mat-divider></mat-divider>
+      <br>
+      <a mat-list-item [routerLink]="[ '/items']">
+        <mat-icon>list</mat-icon> Items
+      </a>
+      <mat-divider></mat-divider>
+      <a mat-list-item [routerLink]="[ '/entries']">
+        <mat-icon>arrow_downward</mat-icon> Entries
+      </a>
+      <mat-divider></mat-divider>
+      <a mat-list-item [routerLink]="[ '/sales']">
+        <mat-icon>arrow_upward</mat-icon> Sales
+      </a>
+      <br><br>
+      <mat-divider></mat-divider>
+      <a mat-list-item [routerLink]="[ '/settings']">
+        <mat-icon>settings</mat-icon> Settings
+      </a>
+      <a mat-list-item [routerLink]="[ '']">
+        <mat-icon>help</mat-icon> Help & Feedback
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary" class="mat-elevation-z3">
+      <button type="button" aria-label="Toggle sidenav" mat-button (click)="drawer.toggle()" *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>easyposi-web</span>
+      <span class="spacer"></span>
+      <app-theme-menu
+      (darkModeSwitched)="switchMode($event)"
+      [isDarkMode]="isDarkMode">
+      </app-theme-menu>
+    </mat-toolbar>
+    <!-- Add Content Here -->
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
