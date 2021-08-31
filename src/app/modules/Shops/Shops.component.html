@@ -5,7 +5,12 @@
   </mat-toolbar>
   <mat-toolbar class="w-100">
     <span class="p-3">
-      <button mat-raised-button color="primary">
+      <button mat-raised-button color="secondary" [routerLink]="['list']" routerLinkActive="active" >
+        <mat-icon>add</mat-icon> shoplist
+      </button>
+    </span>
+    <span class="p-3">
+      <button mat-raised-button color="secondary" [routerLink]="['add']" routerLinkActive="active" >
         <mat-icon>add</mat-icon> new shop
       </button>
     </span>

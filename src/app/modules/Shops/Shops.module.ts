@@ -13,11 +13,9 @@ import { EditShopComponent } from './components/edit-shop/edit-shop.component';
 const routes: Routes = [
   {path:'', component:ShopsComponent,
     children: [
-      {path:'', component:ListComponent},
+      {path:'list', component:ListComponent},
       {path:'add', component:AddShopComponent},
       {path:'edit', component:EditShopComponent},
-
-
     ]
   },
 ];

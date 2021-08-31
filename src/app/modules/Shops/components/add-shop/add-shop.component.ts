@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-add-shop',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddShopComponent implements OnInit {
 
-  constructor() { }
+  addForm: FormGroup = new FormGroup({})
+
+  constructor(
+    public builder: FormBuilder,
+  ) { }
 
   ngOnInit() {
+    this.addForm = this.builder.group({
+      name: [''],
+      location:['']
+    });
   }
 
 }
