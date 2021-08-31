@@ -12,8 +12,10 @@ import { EditShopComponent } from './components/edit-shop/edit-shop.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
-  {path:'', component:ShopsComponent,
+  {path:'', redirectTo: 'account'},
+  {path:'account', component:ShopsComponent,
     children: [
+      {path:'', redirectTo: 'list'},
       {path:'list', component:ListComponent},
       {path:'add', component:AddShopComponent},
       {path:'edit', component:EditShopComponent},

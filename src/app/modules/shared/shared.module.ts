@@ -13,6 +13,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import {MatRippleModule} from '@angular/material/core';
+
 @NgModule({
   imports: [
     CommonModule
@@ -31,6 +33,7 @@ import { MatInputModule } from '@angular/material/input';
     MatSlideToggleModule,
     MatFormFieldModule,
     MatInputModule,
+    MatRippleModule,
   ]
 })
 export class SharedModule { }

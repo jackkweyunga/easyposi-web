@@ -2,6 +2,7 @@ import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable } from '@angular/material/table';
+import { Router } from '@angular/router';
 import { ListDataSource, ListItem } from './list-datasource';
 
 @Component({
@@ -18,8 +19,15 @@ export class ListComponent implements AfterViewInit {
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
   displayedColumns = ['id', 'name', 'location'];
 
-  constructor() {
+  constructor(
+    public router: Router,
+  ) {
     this.dataSource = new ListDataSource();
+  }
+
+  selected(row: ListItem) {
+    console.log(row);
+    this.router.navigate(['shops/account/edit'], {state:{row}} )
   }
 
   ngAfterViewInit(): void {
