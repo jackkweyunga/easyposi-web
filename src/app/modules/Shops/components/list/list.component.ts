@@ -5,6 +5,7 @@ import { MatTable } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { ListDataSource } from './list-datasource';
 import { ListItem } from "../../shops.model";
+import { ShopsService } from '../../services/shops.service';
 
 @Component({
   selector: 'app-list',
@@ -22,8 +23,9 @@ export class ListComponent implements AfterViewInit {
 
   constructor(
     public router: Router,
+    private shopsService: ShopsService
   ) {
-    this.dataSource = new ListDataSource();
+    this.dataSource = new ListDataSource(this.shopsService);
   }
 
   selected(row: ListItem) {

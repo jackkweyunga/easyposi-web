@@ -46,6 +46,7 @@ public async edit(shop: ListItem) {
     }
   })
 
+  this._shops.next(all)
 }
 
 

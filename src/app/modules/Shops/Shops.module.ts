@@ -10,6 +10,7 @@ import { SharedModule } from '../shared/shared.module';
 import { AddShopComponent } from './components/add-shop/add-shop.component';
 import { EditShopComponent } from './components/edit-shop/edit-shop.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ShopsService } from './services/shops.service';
 
 const routes: Routes = [
   {path:'', redirectTo: 'account'},
@@ -34,6 +35,8 @@ const routes: Routes = [
     FormsModule,
     ReactiveFormsModule
   ],
-  declarations: [ShopsComponent, ListComponent, AddShopComponent, EditShopComponent]
+  declarations: [ShopsComponent, ListComponent, AddShopComponent, EditShopComponent],
+  providers: [ShopsService]
+
 })
 export class ShopsModule { }

@@ -4,14 +4,8 @@ import { MatSort } from '@angular/material/sort';
 import { map } from 'rxjs/operators';
 import { Observable, of as observableOf, merge } from 'rxjs';
 import { ListItem } from "../../shops.model";
+import { ShopsService } from "../../services/shops.service";
 
-// TODO: Replace this with your own data model type
-
-
-// TODO: replace this with real data from your application
-export let SHOP_DATA: ListItem[] = [
-  {id: 1, name: 'main shop', location:'kariakoo'},
-];
 
 /**
  * Data source for the List view. This class should
@@ -19,12 +13,17 @@ export let SHOP_DATA: ListItem[] = [
  * (including sorting, pagination, and filtering).
  */
 export class ListDataSource extends DataSource<ListItem> {
-  data: ListItem[] = SHOP_DATA;
+  data: ListItem[] = [];
   paginator: MatPaginator | undefined;
   sort: MatSort | undefined;
 
-  constructor() {
+  constructor(
+    private shopsService: ShopsService,
+  ) {
     super();
+    this.shopsService.shops.subscribe(shops => {
+      this.data = shops;
+    })
   }
 
   /**
