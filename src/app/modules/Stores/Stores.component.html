@@ -1,1 +1,21 @@
-<router-outlet></router-outlet>
+<div class="grid-container-fluid">
+
+  <mat-toolbar color="primary">
+    <span>Stores</span>
+  </mat-toolbar>
+  <mat-toolbar class="w-100">
+    <span class="p-3">
+      <button mat-raised-button color="secondary" [routerLink]="['list']" routerLinkActive="active" >
+        <mat-icon>list</mat-icon> storelist
+      </button>
+    </span>
+    <span class="p-3">
+      <button mat-raised-button color="secondary" [routerLink]="['add']" routerLinkActive="active" >
+        <mat-icon>add</mat-icon> new store
+      </button>
+    </span>
+  </mat-toolbar>
+  <div class="container py-3">
+  <router-outlet></router-outlet>
+  </div>
+</div>

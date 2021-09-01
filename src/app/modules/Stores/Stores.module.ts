@@ -6,12 +6,18 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { RouterModule, Routes } from '@angular/router';
+import { EditComponent } from './components/edit/edit.component';
+import { AddComponent } from './components/add/add.component';
+import { SharedModule } from '../shared/shared.module';
 
 const routes: Routes = [
-  {path:'', component:StoresComponent,
+  {path:'', redirectTo: 'account'},
+  {path:'account', component:StoresComponent,
     children: [
-      {path:'', component:ListComponent},
-
+      {path:'', redirectTo: 'list'},
+      {path:'list', component:ListComponent},
+      {path:'edit', component:EditComponent},
+      {path:'add', component:AddComponent},
     ]
   },
 ];
@@ -19,6 +25,7 @@ const routes: Routes = [
 @NgModule({
   imports: [
     CommonModule,
+    SharedModule,
     MatTableModule,
     RouterModule.forChild(routes),
     MatPaginatorModule,
