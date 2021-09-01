@@ -13,8 +13,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ShopsService } from './services/shops.service';
 
 const routes: Routes = [
-  {path:'', redirectTo: 'account'},
-  {path:'account', component:ShopsComponent,
+  {path:'', redirectTo: 'p'},
+  {path:'p', component:ShopsComponent,
     children: [
       {path:'', redirectTo: 'list'},
       {path:'list', component:ListComponent},

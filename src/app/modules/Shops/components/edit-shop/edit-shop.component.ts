@@ -28,13 +28,13 @@ export class EditShopComponent implements OnInit {
       // console.log(shop);
       this.shopsService.edit(shop)
 
-      this.router.navigateByUrl('shops/account/list')
+      this.router.navigateByUrl('shops/p/list')
     }
   }
 
   delete() {
       this.shopsService.delete(this.shop)
-      this.router.navigateByUrl('shops/account/list')
+      this.router.navigateByUrl('shops/p/list')
   }
 
   ngOnInit() {

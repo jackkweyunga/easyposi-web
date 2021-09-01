@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+import { StoresService } from '../../services/stores.service';
 
 @Component({
   selector: 'app-add',
@@ -7,9 +10,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddComponent implements OnInit {
 
-  constructor() { }
+  addForm: FormGroup = new FormGroup({})
+
+  constructor(
+    public builder: FormBuilder,
+    public router: Router,
+    public storesService: StoresService,
+  ) { }
+
+  save() {
+    if (this.addForm.valid) {
+      const store = this.addForm.value;
+      // console.log(store);
+      this.storesService.add(store)
+      this.router.navigateByUrl('stores/p/list')
+
+    }
+  }
+
 
   ngOnInit() {
+    this.addForm = this.builder.group({
+      name: [''],
+      location:['']
+    });
   }
 
 }

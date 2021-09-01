@@ -5,7 +5,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { ListItem } from "../stores.model";
 
 
-const shopsUrls = {
+const storesUrls = {
   get:"../../../../assets/api/stores.json",
   post:"",
   put:"",
@@ -61,19 +61,19 @@ public async edit(store: ListItem) {
 // crud operations
 
 private getData() {
-  return this.http.get<ListItem[]>(shopsUrls.get)
+  return this.http.get<ListItem[]>(storesUrls.get)
 }
 
 private addData() {
-  return this.http.get(shopsUrls.post)
+  return this.http.get(storesUrls.post)
 }
 
 private editData() {
-  return this.http.get(shopsUrls.put)
+  return this.http.get(storesUrls.put)
 }
 
 private deleteData() {
-  return this.http.get(shopsUrls.delete)
+  return this.http.get(storesUrls.delete)
 }
 
 }

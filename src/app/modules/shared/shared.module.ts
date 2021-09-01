@@ -14,6 +14,7 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import {MatRippleModule} from '@angular/material/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
@@ -34,6 +35,8 @@ import {MatRippleModule} from '@angular/material/core';
     MatFormFieldModule,
     MatInputModule,
     MatRippleModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class SharedModule { }

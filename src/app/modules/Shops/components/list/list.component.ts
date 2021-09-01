@@ -30,7 +30,7 @@ export class ListComponent implements AfterViewInit, OnInit {
 
   selected(row: ListItem) {
     console.log(row);
-    this.router.navigate(['shops/account/edit'], {state:{row}} )
+    this.router.navigate(['shops/p/edit'], {state:{row}} )
   }
 
   async ngAfterViewInit() {

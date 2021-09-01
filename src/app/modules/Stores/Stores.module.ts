@@ -11,8 +11,8 @@ import { AddComponent } from './components/add/add.component';
 import { SharedModule } from '../shared/shared.module';
 
 const routes: Routes = [
-  {path:'', redirectTo: 'account'},
-  {path:'account', component:StoresComponent,
+  {path:'', redirectTo: 'p'},
+  {path:'p', component:StoresComponent,
     children: [
       {path:'', redirectTo: 'list'},
       {path:'list', component:ListComponent},
@@ -31,6 +31,6 @@ const routes: Routes = [
     MatPaginatorModule,
     MatSortModule
   ],
-  declarations: [StoresComponent, ListComponent]
+  declarations: [StoresComponent, ListComponent, AddComponent, EditComponent],
 })
 export class StoresModule { }

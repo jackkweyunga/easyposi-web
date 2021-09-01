@@ -2,7 +2,10 @@ import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable } from '@angular/material/table';
-import { ListDataSource, ListItem } from './list-datasource';
+import { Router } from '@angular/router';
+import { StoresService } from '../../services/stores.service';
+import { ListItem } from '../../stores.model';
+import { ListDataSource } from './list-datasource';
 
 @Component({
   selector: 'app-list',
@@ -16,10 +19,18 @@ export class ListComponent implements AfterViewInit {
   dataSource: ListDataSource;
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['id', 'name'];
+  displayedColumns = ['id', 'name', 'location'];
 
-  constructor() {
-    this.dataSource = new ListDataSource();
+  constructor(
+    private storesService: StoresService,
+    private router: Router,
+  ) {
+    this.dataSource = new ListDataSource(this.storesService);
+  }
+
+  selected(row: ListItem) {
+    console.log(row);
+    this.router.navigate(['stores/p/edit'], {state:{row}} )
   }
 
   ngAfterViewInit(): void {

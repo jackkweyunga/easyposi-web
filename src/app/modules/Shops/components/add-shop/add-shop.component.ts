@@ -23,7 +23,7 @@ export class AddShopComponent implements OnInit {
       const shop = this.addForm.value;
       // console.log(shop);
       this.shopsService.add(shop)
-      this.router.navigateByUrl('shops/account/list')
+      this.router.navigateByUrl('shops/p/list')
 
     }
   }
