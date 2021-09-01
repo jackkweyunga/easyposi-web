@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ShopsService } from '../../services/shops.service';
 
 @Component({
   selector: 'app-add-shop',
@@ -14,12 +15,14 @@ export class AddShopComponent implements OnInit {
   constructor(
     public builder: FormBuilder,
     public router: Router,
+    public shopsService: ShopsService,
   ) { }
 
   save() {
     if (this.addForm.valid) {
       const shop = this.addForm.value;
-      console.log(shop);
+      // console.log(shop);
+      this.shopsService.edit(shop)
       this.router.navigateByUrl('shops/account/list')
 
     }

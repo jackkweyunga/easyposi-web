@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ShopsService } from '../../services/shops.service';
 
 @Component({
   selector: 'app-edit-shop',
@@ -14,12 +15,16 @@ export class EditShopComponent implements OnInit {
   constructor(
     public builder: FormBuilder,
     public router: Router,
+    public shopsService: ShopsService,
+
   ) { }
 
   save() {
     if (this.editForm.valid) {
       const shop = this.editForm.value;
-      console.log(shop);
+      // console.log(shop);
+      this.shopsService.edit(shop)
+
       this.router.navigateByUrl('shops/account/list')
     }
   }
@@ -31,6 +36,7 @@ export class EditShopComponent implements OnInit {
     console.log(shop);
 
     this.editForm = this.builder.group({
+      id: [shop.id],
       name: [shop.name],
       location:[shop.location],
     });

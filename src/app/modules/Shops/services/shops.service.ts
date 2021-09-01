@@ -31,20 +31,28 @@ public async data() {
   this._shops.next(data)
 }
 
+public async add(shop: ListItem) {
+  let new_list = this._shops.value
+  new_list.push(shop)
+  this._shops.next(new_list)
+}
+
 public async delete(shop: ListItem) {
   const new_list = this._shops.value.filter((item: ListItem) => item.id !== shop.id)
   this._shops.next(new_list)
 }
 
 public async edit(shop: ListItem) {
-  const all = this._shops.value
+  let all = this._shops.value
 
   all.forEach(item => {
-    if (shop.id == item.id) {
+    if (shop.id === item.id) {
       item.name = shop.name
       item.location = shop.location
     }
   })
+
+  console.log(all);
 
   this._shops.next(all)
 }

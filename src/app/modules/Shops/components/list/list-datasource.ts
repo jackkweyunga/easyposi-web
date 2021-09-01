@@ -21,8 +21,10 @@ export class ListDataSource extends DataSource<ListItem> {
     private shopsService: ShopsService,
   ) {
     super();
+    this.shopsService.data()
     this.shopsService.shops.subscribe(shops => {
       this.data = shops;
+      // console.log(shops);
     })
   }
 
