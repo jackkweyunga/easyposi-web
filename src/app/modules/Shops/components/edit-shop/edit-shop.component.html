@@ -2,7 +2,8 @@
 <div class="container">
 
   <mat-card>
-    <form [formGroup]="editForm">
+
+  <form [formGroup]="editForm" (ngSubmit)="save()">
 
       <div class="col">
 

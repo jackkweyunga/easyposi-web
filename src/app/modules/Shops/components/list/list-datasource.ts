@@ -3,18 +3,14 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { map } from 'rxjs/operators';
 import { Observable, of as observableOf, merge } from 'rxjs';
+import { ListItem } from "../../shops.model";
 
 // TODO: Replace this with your own data model type
-export interface ListItem {
-  name: string;
-  id: number;
-  location: string;
-}
+
 
 // TODO: replace this with real data from your application
-const SHOP_DATA: ListItem[] = [
+export let SHOP_DATA: ListItem[] = [
   {id: 1, name: 'main shop', location:'kariakoo'},
-
 ];
 
 /**

@@ -16,6 +16,15 @@ export class EditShopComponent implements OnInit {
     public router: Router,
   ) { }
 
+  save() {
+    if (this.editForm.valid) {
+      const shop = this.editForm.value;
+      console.log(shop);
+      this.router.navigateByUrl('shops/account/list')
+    }
+  }
+
+
   ngOnInit() {
 
     const shop = window.history.state['row'];
@@ -25,7 +34,6 @@ export class EditShopComponent implements OnInit {
       name: [shop.name],
       location:[shop.location],
     });
-
 
   }
 

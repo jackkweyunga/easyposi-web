@@ -3,7 +3,8 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable } from '@angular/material/table';
 import { Router } from '@angular/router';
-import { ListDataSource, ListItem } from './list-datasource';
+import { ListDataSource } from './list-datasource';
+import { ListItem } from "../../shops.model";
 
 @Component({
   selector: 'app-list',
