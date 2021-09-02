@@ -23,7 +23,9 @@ const routes: Routes = [
       {path:'invoices', loadChildren: () => import('../Invoices/Invoices.module').then(m => m.InvoicesModule)},
       {path:'cashbook', loadChildren: () => import('../CashBook/CashBook.module').then(m => m.CashBookModule)},
       {path:'pos', loadChildren: () => import('../Pos/Pos.module').then(m => m.PosModule)},
-      {path:'reports', loadChildren: () => import('../Reports/Reports.module').then(m => m.ReportsModule)}
+      {path:'reports', loadChildren: () => import('../Reports/Reports.module').then(m => m.ReportsModule)},
+      {path:'feedback', loadChildren: () => import('../Feedback/Feedback.module').then(m => m.FeedbackModule)}
+
     ]
   },
 ];

@@ -61,7 +61,7 @@
         <button mat-button>Sales</button>
       </a>
       <mat-divider></mat-divider>
-      <a mat-list-item [routerLink]="[ '']">
+      <a mat-list-item [routerLink]="[ '/feedback']">
         <mat-icon color='primary'>help</mat-icon>
         <button mat-button>Help & Feedback</button>
       </a>
@@ -80,35 +80,40 @@
       </span>
       <span class="spacer"></span>
       <span>
-        <button color="primary" matTooltip="point of sale" mat-flat-button>
+        <button color="primary" matTooltip="point of sale" [routerLink]="[ '/pos']" routerLinkActive='bg-primary' mat-flat-button>
           <mat-icon>developer_board</mat-icon>
           <span *ngIf="!(isHandset$ | async)">POS</span>
         </button>
       </span>
       <mat-divider [vertical]="true"></mat-divider>
       <span>
-        <button color="primary" matTooltip="reports" mat-flat-button>
+        <button color="primary" matTooltip="reports" [routerLink]="[ '/reports']" routerLinkActive='bg-primary' mat-flat-button>
           <mat-icon>bar_chart</mat-icon>
           <span *ngIf="!(isHandset$ | async)">REPORTS</span>
         </button>
       </span>
       <mat-divider [vertical]="true"></mat-divider>
       <span>
-        <button color="primary" matTooltip="cash book" mat-flat-button>
+        <button color="primary" matTooltip="cash book" [routerLink]="[ '/cashbook']" routerLinkActive='bg-primary' mat-flat-button>
           <mat-icon>book</mat-icon>
           <span *ngIf="!(isHandset$ | async)">CASH BOOK</span>
         </button>
       </span>
       <mat-divider [vertical]="true"></mat-divider>
       <span>
-        <button color="primary" matTooltip="notifications" mat-flat-button>
+        <button color="primary" matTooltip="notifications" [matMenuTriggerFor]="menu" mat-flat-button>
           <mat-icon>notifications_none</mat-icon>
           <span *ngIf="!(isHandset$ | async)"></span>
         </button>
+        <mat-menu #menu="matMenu" style="min-width: 250px">
+          <div class="container" style="min-width: 250px">
+            no notifications!
+          </div>
+        </mat-menu>
       </span>
       <mat-divider [vertical]="true"></mat-divider>
-      <app-theme-menu (darkModeSwitched)="switchMode($event)" [isDarkMode]="isDarkMode">
-      </app-theme-menu>
+      <!-- <app-theme-menu (darkModeSwitched)="switchMode($event)" [isDarkMode]="isDarkMode">
+      </app-theme-menu> -->
     </mat-toolbar>
     <!-- Add Content Here -->
     <router-outlet></router-outlet>
