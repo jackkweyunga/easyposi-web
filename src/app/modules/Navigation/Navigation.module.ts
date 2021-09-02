@@ -19,8 +19,11 @@ const routes: Routes = [
       {path:'settings', loadChildren: () => import('../Settings/Settings.module').then(m => m.SettingsModule)},
       {path:'workers', loadChildren: () => import('../Workers/Workers.module').then(m => m.WorkersModule)},
       {path:'stores', loadChildren: () => import('../Stores/Stores.module').then(m => m.StoresModule)},
-      {path:'stores', loadChildren: () => import('../Stores/Stores.module').then(m => m.StoresModule)}
-
+      {path:'stores', loadChildren: () => import('../Stores/Stores.module').then(m => m.StoresModule)},
+      {path:'invoices', loadChildren: () => import('../Invoices/Invoices.module').then(m => m.InvoicesModule)},
+      {path:'cashbook', loadChildren: () => import('../CashBook/CashBook.module').then(m => m.CashBookModule)},
+      {path:'pos', loadChildren: () => import('../Pos/Pos.module').then(m => m.PosModule)},
+      {path:'reports', loadChildren: () => import('../Reports/Reports.module').then(m => m.ReportsModule)}
     ]
   },
 ];
