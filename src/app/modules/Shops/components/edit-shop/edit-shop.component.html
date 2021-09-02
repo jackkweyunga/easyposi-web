@@ -31,8 +31,11 @@
 <br>
     <mat-divider></mat-divider>
     <br>
-    <div class="row">
-      <button mat-raised-button (click)="delete()" color="warn">delete shop</button>
+    <div class="row px-2">
+      <button mat-mini-fab (click)="delete()" color="warn">
+        <mat-icon>delete</mat-icon>
+      </button>
+      <span class="text-muted mt-1">delete shop</span>
     </div>
   </mat-card>
 
