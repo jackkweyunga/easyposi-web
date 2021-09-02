@@ -1,3 +1,3 @@
 [
-  {"id": 1, "fullName": "Jackson Egidius", "role":"sales", "email":"jackkweyunga@gmail.com", "phone":"0764205701", "state":"active", "shop":"1", "store":"", "dateIn":"12/03/2001" }
+  {"id": 1, "fullName": "Jackson Egidius", "role":"sales", "email":"jackkweyunga@gmail.com", "phone":"0764205701", "state":"active", "shop":1, "store":0, "dateIn":"12/03/2001" }
 ]
