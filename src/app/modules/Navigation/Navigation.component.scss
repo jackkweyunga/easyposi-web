@@ -1,9 +1,27 @@
 .sidenav-container {
   height: 100%;
+  overflow: hidden;
 }
 
 .sidenav {
   width: 200px;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+.sidenav-list {
+  height: 78%;
+  overflow: auto;
+}
+.sidenav-toolbar {
+  height: 10%;
+  overflow: hidden;
+}
+.sidenav-card {
+  height: 10%;
+  overflow: hidden;
 }
 
 .sidenav .mat-toolbar {
@@ -14,4 +32,13 @@
   position: sticky;
   top: 0;
   z-index: 1;
+}
+
+.nav-link {
+  text-decoration: none;
+}
+
+
+.active {
+  background:#ececee;
 }

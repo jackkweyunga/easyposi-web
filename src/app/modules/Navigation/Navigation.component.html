@@ -1,49 +1,72 @@
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
     [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
-    <mat-toolbar>
-      Bussiness Name
+    <mat-card color='primary w-100' style="border-radius:0;background:#3F51B5;" class="mat-elevation-z0 sidenav-card">
+      <mat-card-header>
+        <img mat-card-avatar src="../../../assets/images/user_image.png">
+        <mat-card-title class="text-white"><button mat-button>admin</button></mat-card-title>
+      </mat-card-header>
+    </mat-card>
+    <mat-divider></mat-divider>
+    <mat-toolbar class="sidenav-toolbar">
+      <mat-toolbar-row>
+        <span>
+          <button mat-flat-button>
+            <mat-icon>logout</mat-icon> logout
+          </button>
+        </span>
+        <mat-divider [vertical]="true"></mat-divider>
+        <span>
+          <button mat-flat-button>
+            <mat-icon>settings</mat-icon>
+          </button>
+        </span>
+      </mat-toolbar-row>
     </mat-toolbar>
     <mat-divider></mat-divider>
 
-    <mat-nav-list>
+    <mat-nav-list class="sidenav-list" style="overflow:hidden;">
+      <a mat-list-item [routerLink]="[ '/dashboard']" routerLinkActive='active'>
+        <mat-icon color='primary'>dashboard</mat-icon>
+        <button mat-button>Dashboard</button>
+      </a>
+      <a mat-list-item [routerLink]="[ '/invoices']" routerLinkActive='active'>
+        <mat-icon color='primary'>payment</mat-icon>
+        <button mat-button>invoices</button>
+      </a>
+      <mat-divider></mat-divider>
+      <a mat-list-item [routerLink]="[ '/shops']" routerLinkActive='active'>
+        <mat-icon color='primary'>shop</mat-icon>
+        <button mat-button>Shops</button>
+      </a>
+      <a mat-list-item [routerLink]="[ '/stores']" routerLinkActive='active'>
+        <mat-icon color='primary'>store</mat-icon>
+        <button mat-button>Stores</button>
+      </a>
+      <a mat-list-item [routerLink]="[ '/workers']" routerLinkActive='active'>
+        <mat-icon color='primary'>group</mat-icon>
+        <button mat-button>Workers</button>
+      </a>
+      <mat-divider></mat-divider>
+      <a mat-list-item [routerLink]="[ '/items']" routerLinkActive='active'>
+        <mat-icon color='primary'>list</mat-icon>
+        <button mat-button>Products</button>
+      </a>
+      <a mat-list-item [routerLink]="[ '/entries']" routerLinkActive='active'>
+        <mat-icon color='primary'>arrow_downward</mat-icon>
+        <button mat-button>Purchases</button>
+      </a>
+      <a mat-list-item [routerLink]="[ '/sales']" routerLinkActive='active'>
+        <mat-icon color='primary'>arrow_upward</mat-icon>
+        <button mat-button>Sales</button>
+      </a>
+      <mat-divider></mat-divider>
       <a mat-list-item [routerLink]="[ '']">
-        <mat-icon>dashboard</mat-icon> Dashboard
+        <mat-icon color='primary'>help</mat-icon>
+        <button mat-button>Help & Feedback</button>
       </a>
-      <mat-divider></mat-divider>
-      <br>
-
-      <a mat-list-item [routerLink]="[ '/shops']">
-        <mat-icon>shop</mat-icon> Shops
-      </a>
-      <mat-divider></mat-divider>
-      <a mat-list-item [routerLink]="[ '/stores']">
-        <mat-icon>store</mat-icon> Stores
-      </a>
-      <mat-divider></mat-divider>
-      <a mat-list-item [routerLink]="[ '/workers']">
-        <mat-icon>group</mat-icon> Workers
-      </a>
-      <mat-divider></mat-divider>
-      <br>
-      <a mat-list-item [routerLink]="[ '/items']">
-        <mat-icon>list</mat-icon> Items
-      </a>
-      <mat-divider></mat-divider>
-      <a mat-list-item [routerLink]="[ '/entries']">
-        <mat-icon>arrow_downward</mat-icon> Entries
-      </a>
-      <mat-divider></mat-divider>
-      <a mat-list-item [routerLink]="[ '/sales']">
-        <mat-icon>arrow_upward</mat-icon> Sales
-      </a>
-      <br><br>
-      <mat-divider></mat-divider>
-      <a mat-list-item [routerLink]="[ '/settings']">
-        <mat-icon>settings</mat-icon> Settings
-      </a>
-      <a mat-list-item [routerLink]="[ '']">
-        <mat-icon>help</mat-icon> Help & Feedback
+      <a mat-list-item class='w-100 mt-2 d-flex justify-content-center' [routerLink]="[ '']">
+        <img mat-card-sm-image src="../../../assets/images/logo-color.png" alt="">
       </a>
     </mat-nav-list>
   </mat-sidenav>
@@ -52,11 +75,39 @@
       <button type="button" aria-label="Toggle sidenav" mat-button (click)="drawer.toggle()" *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>easyposi-web</span>
+      <span *ngIf="!(isHandset$ | async)">
+        <img width="160" src="../../../assets/images/easyposiword.png" alt="logo">
+      </span>
       <span class="spacer"></span>
-      <app-theme-menu
-      (darkModeSwitched)="switchMode($event)"
-      [isDarkMode]="isDarkMode">
+      <span>
+        <button color="primary" matTooltip="point of sale" mat-flat-button>
+          <mat-icon>developer_board</mat-icon>
+          <span *ngIf="!(isHandset$ | async)">POS</span>
+        </button>
+      </span>
+      <mat-divider [vertical]="true"></mat-divider>
+      <span>
+        <button color="primary" matTooltip="reports" mat-flat-button>
+          <mat-icon>bar_chart</mat-icon>
+          <span *ngIf="!(isHandset$ | async)">REPORTS</span>
+        </button>
+      </span>
+      <mat-divider [vertical]="true"></mat-divider>
+      <span>
+        <button color="primary" matTooltip="cash book" mat-flat-button>
+          <mat-icon>book</mat-icon>
+          <span *ngIf="!(isHandset$ | async)">CASH BOOK</span>
+        </button>
+      </span>
+      <mat-divider [vertical]="true"></mat-divider>
+      <span>
+        <button color="primary" matTooltip="notifications" mat-flat-button>
+          <mat-icon>notifications_none</mat-icon>
+          <span *ngIf="!(isHandset$ | async)"></span>
+        </button>
+      </span>
+      <mat-divider [vertical]="true"></mat-divider>
+      <app-theme-menu (darkModeSwitched)="switchMode($event)" [isDarkMode]="isDarkMode">
       </app-theme-menu>
     </mat-toolbar>
     <!-- Add Content Here -->
